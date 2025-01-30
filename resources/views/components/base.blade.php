@@ -17,7 +17,7 @@
 
     <section class="p-12 mx-auto max-w-6xl text-gray-800">
        
-       {{ $text}}
+       {{ $text }}
 </section>
 
 
