@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GreetingController;
 use App\Http\Controllers\welcomeController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,17 @@ Route::get('/about', function () {
 });
 
 Route::get('/hello', [GreetingController::class, 'index']);
+
+Route::get('/about', function () {
+
+//1. using row sql queries
+ //$users = DB::select('select * from users');
+ //dd($users);
+
+//2. Query Builder
+$users= DB::table('users')->select(['name','email'])->whereNotNull('email')->orderBy('name')->get();
+dd($users);
+
+//3. Eloquent ORM
+
+});
